@@ -7,22 +7,22 @@
 
 import Foundation
 
-class Observable<T> {
-    typealias Listener = (T) -> ()
-    var listener: Listener?
-    
-    var value: T {
-        didSet {
-            listener?(value)
-        }
-    }
-    
-    func bind(listener: @escaping Listener) {
-        self.listener = listener
-        self.listener?(self.value)
-    }
-    
-    init(_ value:T) {
-        self.value = value
-    }
-}
+//class Observable<T> {
+//    typealias Listener = (T) -> ()
+//    var listener: Listener?
+//    
+//    var value: T {
+//        didSet {
+//            listener?(value)
+//        }
+//    }
+//    
+//    func bind(listener: @escaping Listener) {
+//        self.listener = listener
+//        self.listener?(self.value)
+//    }
+//    
+//    init(_ value:T) {
+//        self.value = value
+//    }
+//}
