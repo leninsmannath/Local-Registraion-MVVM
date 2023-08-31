@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 protocol LoginApiHandler {
     func login(email:String,password:String,completionHandler: @escaping(Result<User?, Error>) -> ())
@@ -14,9 +13,8 @@ protocol LoginApiHandler {
 
 class LoginServiceLocalDatabase : LoginApiHandler {
     func login(email: String, password: String, completionHandler: @escaping (Result<User?, Error>) -> ()) {
-        let users = CoreDataManager.shared.getAllUser(entity: "User")
+        let users = CoreDataManager.shared.getAllUser(entity: CoreDataEntity.user)
         if let user = users.first(where: {$0.email == email && $0.password == password}){
-            print(email + " exist")
             completionHandler(.success(user))
         } else {
             let error = RegistrationError.userNotFound

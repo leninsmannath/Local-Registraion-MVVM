@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -147,7 +148,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDo-6S-k4C">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter first name *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDo-6S-k4C">
                                                         <rect key="frame" x="0.0" y="67" width="295" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -157,22 +158,45 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-qq-RUc">
+                                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-ad-H7X">
                                                         <rect key="frame" x="0.0" y="201" width="295" height="42"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <menu key="menu" title="Gender" id="W5s-2w-lVF">
+                                                            <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
+                                                            <children>
+                                                                <command title="Male" id="BbY-OC-U9a">
+                                                                    <connections>
+                                                                        <action selector="didTapGender:" destination="VvI-fF-wfc" id="EV0-eA-m0E"/>
+                                                                    </connections>
+                                                                </command>
+                                                                <command title="Female" id="gbc-rG-lic">
+                                                                    <connections>
+                                                                        <action selector="didTapGender:" destination="VvI-fF-wfc" id="vgW-Bs-Db6"/>
+                                                                    </connections>
+                                                                </command>
+                                                                <command title="Other" id="8rb-2J-KX9">
+                                                                    <connections>
+                                                                        <action selector="didTapGender:" destination="VvI-fF-wfc" id="7Uu-CR-4WM"/>
+                                                                    </connections>
+                                                                </command>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Choose gender"/>
+                                                        <connections>
+                                                            <action selector="didTapGender:" destination="PIE-fl-KL6" eventType="touchUpInside" id="ZSU-wA-Hgq"/>
+                                                        </connections>
+                                                    </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-xb-gbR">
                                                         <rect key="frame" x="0.0" y="268" width="295" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZRr-ta-sIa">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZRr-ta-sIa">
                                                         <rect key="frame" x="0.0" y="335" width="295" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B48-FX-uk5">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B48-FX-uk5">
                                                         <rect key="frame" x="0.0" y="402" width="295" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -228,7 +252,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="ZRr-ta-sIa" id="urn-V7-PIL"/>
                         <outlet property="firstNameTextField" destination="LDo-6S-k4C" id="nlR-bW-Vf1"/>
-                        <outlet property="genderTextField" destination="XoF-qq-RUc" id="eeS-3f-S4e"/>
+                        <outlet property="genderButton" destination="hQQ-ad-H7X" id="aXu-RG-9EC"/>
                         <outlet property="lastNameTextField" destination="o8p-R5-I8K" id="r9f-a8-Gtw"/>
                         <outlet property="mobileTextField" destination="XLp-xb-gbR" id="2MC-YK-chf"/>
                         <outlet property="passwordTextField" destination="B48-FX-uk5" id="vPC-Bn-qBI"/>

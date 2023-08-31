@@ -23,7 +23,7 @@ extension RegistrationError: LocalizedError {
         case .alreadyRegistered:
             return NSLocalizedString("This user is already registered, please try login", comment: "Invalid Phone Number")
         case .userNotFound:
-            return NSLocalizedString("This email is not registered, please register", comment: "Invalid Phone Number")
+            return NSLocalizedString("Invalid credentials, please try again", comment: "Invalid credentials")
         }
     }
 }

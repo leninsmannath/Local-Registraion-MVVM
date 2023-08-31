@@ -35,7 +35,7 @@ class CoreDataManager {
             try viewContext.save()
         } catch {
             viewContext.rollback()
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
     }
     

@@ -21,8 +21,15 @@ class SignUpViewModel {
     }
     func signUp(firstName:String?,lastName:String?,gender:String?,mobile:String?,email:String?,password:String?) {
         
+        // Validate first name
+        var validationResult = self.validate(firstName: firstName)
+        guard validationResult.status == true else {
+            self.delegate?.failedToRegister(withErrorMessage: validationResult.errorMessage)
+            return
+        }
+        
         // Validate Email
-        var validationResult = self.validate(email: email)
+        validationResult = self.validate(email: email)
         guard validationResult.status == true else {
             self.delegate?.failedToRegister(withErrorMessage: validationResult.errorMessage)
             return
@@ -58,7 +65,7 @@ class SignUpViewModel {
 extension SignUpViewModel{
     func validate(email:String?) -> ValidationStatus {
         guard let emailValue = email,emailValue.isEmpty == false else {
-            return (false,"Enter email")
+            return (false,"Email should not be empty")
         }
         if emailValue.isValidEmail() == false{
             return (false,"Enter valid email")
@@ -68,7 +75,14 @@ extension SignUpViewModel{
     
     func validate(password:String?) -> ValidationStatus {
         guard let passwordValue = password, passwordValue.isEmpty == false else {
-            return (false,"Enter password")
+            return (false,"Password should not be empty")
+        }
+        return (true,"")
+    }
+    
+    func validate(firstName:String?) -> ValidationStatus {
+        guard let value = firstName, value.isEmpty == false else {
+            return (false,"First name should not be empty")
         }
         return (true,"")
     }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 protocol SignUpApiHandler {
     func register(user:[String:String],completionHandler: @escaping(Result<User?, Error>) -> ())
@@ -26,9 +25,9 @@ class SignUpServiceLocalDatabase {
 }
 extension SignUpServiceLocalDatabase : SignUpApiHandler {
     func register(user: [String:String], completionHandler: @escaping (Result<User?, Error>) -> ()) {
-        let users = CoreDataManager.shared.getAllUser(entity: "User")
+        let users = CoreDataManager.shared.getAllUser(entity: CoreDataEntity.user)
         if let userResult = users.first(where: {$0.email == user["email"]}){
-            print((userResult.email ?? "") + " exist")
+            debugPrint((userResult.email ?? "") + " exist")
             let error = RegistrationError.alreadyRegistered
             completionHandler(.failure(error))
         } else {

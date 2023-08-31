@@ -16,12 +16,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupViewModel()
         setupDelegate()
-        setupMockData()
         // Do any additional setup after loading the view.
-    }
-    func setupMockData () {
-        emailTextField.text = "leninsmannath@gmail.com"
-        passwordTextField.text = "12345"
     }
     func setupViewModel () {
         self.viewModel = LoginViewModel(withDelegate: self)
